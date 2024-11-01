@@ -23,6 +23,7 @@ function ManageLocation() {
       title: "No",
       key: "index",
       render: (_text: any, _record: any, index: number) => index + 1,
+      dataIndex: ""
     },
     { title: "ID", dataIndex: "id", key: "id" },
     { title: "Name", dataIndex: "name", key: "name" },

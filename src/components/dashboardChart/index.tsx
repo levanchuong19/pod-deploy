@@ -7,7 +7,7 @@ import BarChart from "../barChart";
 import { useNavigate } from "react-router-dom";
 import "./index.scss";
 import api from "../config/api";
-import { Button, Table } from "antd";
+import { Table } from "antd";
 import moment from "moment";
 
 const DashboardChard: React.FC = () => {

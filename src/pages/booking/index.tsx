@@ -87,7 +87,7 @@ export default function Bookings({ numberOfSlides = 4, autoplay = false }) {
     const isPastDate = current.isBefore(dayjs(), "day");
 
     // Kiểm tra nếu ngày hiện tại nằm giữa khoảng booking (trừ ngày đầu và ngày cuối)
-    const isFullyBookedMidDay = bookedSlots.some((slot) => {
+    const isFullyBookedMidDay = bookedSlots.some((slot: any) => {
       const start = dayjs(slot.startTime);
       const end = dayjs(slot.endTime);
       return current.isAfter(start, "day") && current.isBefore(end, "day");
@@ -100,7 +100,7 @@ export default function Bookings({ numberOfSlides = 4, autoplay = false }) {
     const now = dayjs(); // Giờ hiện tại
     let disabledHours: number[] = [];
 
-    bookedSlots.forEach((slot) => {
+    bookedSlots.forEach((slot: any) => {
       const start = dayjs(slot.startTime);
       const end = dayjs(slot.endTime);
       const isSameStartDay = current.isSame(start, "day");

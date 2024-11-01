@@ -23,6 +23,7 @@ function ManageDevice() {
   const columns: Column[] = [
     {
       title: "No",
+      dataIndex: "index",
       key: "index",
       render: (_text: any, _record: any, index: number) => index + 1,
     },

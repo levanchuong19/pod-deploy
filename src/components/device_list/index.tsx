@@ -1,5 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import { Location } from "../modal/location";
 import api from "../config/api";
@@ -22,7 +21,6 @@ export default function DeviceList({ numberOfSlides = 3, autoplay = false }) {
   const [selectedLocationId, setSelectedLocationId] = useState<string | null>(
     null
   );
-  const [selectedFloor, setSelectedFloor] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [podsPerPage] = useState(6);
 
@@ -77,11 +75,9 @@ export default function DeviceList({ numberOfSlides = 3, autoplay = false }) {
         (pod) => pod.locationId === selectedLocationId
       );
     }
-    if (selectedFloor) {
-      filtered = filtered.filter((pod) => pod.floor === selectedFloor);
-    }
+
     setFilteredPods(filtered);
-  }, [selectedDeviceId, selectedLocationId, selectedFloor, pod]);
+  }, [selectedDeviceId, selectedLocationId, pod]);
 
   const handleDeviceClick = (deviceId: string) => {
     setSelectedDeviceId(deviceId);

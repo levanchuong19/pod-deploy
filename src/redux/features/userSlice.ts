@@ -13,7 +13,7 @@ export const userSlice = createSlice({
   name: "user",
   initialState, //initialState: initialState
   reducers: {
-    login: (state, action) => action.payload, // user
+    login: (_state, action) => action.payload, // user
     logout: () => initialState,
   },
 });

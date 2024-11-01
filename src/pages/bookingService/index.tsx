@@ -9,26 +9,11 @@ import formatVND from "../../utils/currency";
 import { Button } from "antd";
 import { format } from "date-fns";
 import { Payment } from "../../components/modal/payment";
-import { POD } from "../../components/modal/pod";
 
 function BookingService() {
   const [isBooking, setIsbooking] = useState<Booking | null>(null);
   const [isPayment, setIsPayment] = useState<Payment | null>(null);
   const { id } = useParams();
-  const [pods, setPod] = useState<POD>();
-
-  const fetchPod = async () => {
-    try {
-      const response = await api.get(`pods/${isBooking?.podId}`);
-      console.log(response.data.data);
-      setPod(response.data.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  useEffect(() => {
-    fetchPod();
-  }, [isBooking?.podId]);
 
   const fetchBooking = async () => {
     const response = await api.get(`bookings/${id}`);

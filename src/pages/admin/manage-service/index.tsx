@@ -9,17 +9,20 @@ import {
   UploadFile,
   UploadProps,
 } from "antd";
-import DashboardTemplate from "../../../components/dashboard_template";
+import DashboardTemplate, {
+  Column,
+} from "../../../components/dashboard_template";
 import { useState } from "react";
 import { PlusOutlined } from "@ant-design/icons";
 
 function ManageDevice() {
   const title = "services";
-  const columns = [
+  const columns: Column[] = [
     {
       title: "No",
       key: "index",
-      render: (text: any, record: any, index: number) => index + 1,
+      render: (_text: any, _record: any, index: number) => index + 1,
+      dataIndex: "",
     },
     { title: "ID", dataIndex: "id", key: "id" },
     { title: "Name", dataIndex: "name", key: "name" },

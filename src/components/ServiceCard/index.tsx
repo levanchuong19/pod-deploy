@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Card,
   Checkbox,
@@ -12,7 +13,7 @@ import { useState } from "react";
 
 interface ServiceCardProps {
   service: Service;
-  onSelect: (service: Service, quantity: number, isChecked: boolean) => void;
+  onSelect: (service: any, quantity: any, isChecked: any) => void;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) => {
@@ -22,13 +23,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, onSelect }) => {
   const onCheckboxChange: CheckboxProps["onChange"] = (e) => {
     const isChecked = e.target.checked;
     setShowInputNumber(isChecked);
-    onSelect(service.id, quantity, isChecked);
+    onSelect(service?.id, quantity, isChecked);
   };
 
   const onQuantityChange: InputNumberProps["onChange"] = (value) => {
     const newQuantity = value as number;
     setQuantity(newQuantity);
-    onSelect(service?.id, newQuantity || 1, true);
+    onSelect(service?.id || "", newQuantity || 1, true);
   };
 
   return (

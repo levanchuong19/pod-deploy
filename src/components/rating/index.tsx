@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Card, Input, Button, List, Avatar, Rate } from "antd";
 import api from "../../components/config/api";
@@ -51,12 +52,15 @@ const Ratings: React.FC<{ podId: string }> = ({ podId }) => {
 
   const handleAddComment = async () => {
     if (comment && customerId && podId && value) {
-      const newComment = {
+      const newComment: RATING = {
         podId: podId,
         customerName: "You",
         ratingValue: value,
         comments: comment,
         customerId: customerId,
+        id: "",
+        podName: "",
+        creationDate: new Date(),
       };
       console.log("Submitting data:", newComment);
       try {

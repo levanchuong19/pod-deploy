@@ -12,7 +12,7 @@ export interface Column {
   title: string;
   dataIndex: string;
   key: string;
-  render?: (value: any) => any;
+  render?: (text: any, record: any, index: number) => any;
 }
 
 interface DashboardTemplateProps {
@@ -99,7 +99,7 @@ function DashboardTemplate({
   };
 
   //DELETE
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: string) => {
     try {
       await api.delete(`${apiURI}/${id}`);
       toast.success("Success deleted!!!");

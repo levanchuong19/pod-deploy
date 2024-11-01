@@ -74,34 +74,6 @@ const BookingCard: React.FC<ReservationCardProps> = ({ booking }) => {
     return `${hours} giờ ${minutes} phút`;
   };
 
-  const calculateTotalServicePrice = () => {
-    if (booking?.bookingServices) {
-      return booking.bookingServices.reduce(
-        (total, service) => total + service.totalPrice,
-        0
-      );
-    }
-    return 0;
-  };
-
-  const adjustedTotalPrice = booking?.totalPrice
-    ? booking.totalPrice - calculateTotalServicePrice()
-    : 0;
-  const calculateUsageHours = (startTime: Date, endTime: Date) => {
-    const durationInMinutes =
-      (endTime.getTime() - startTime.getTime()) / (1000 * 60);
-    const hours = durationInMinutes / 60;
-    return hours > 0 ? hours : 1;
-  };
-  const usageHours =
-    booking?.startTime && booking?.endTime
-      ? calculateUsageHours(
-          new Date(booking.startTime),
-          new Date(booking.endTime)
-        )
-      : 1;
-  const pricePerHour = usageHours > 0 ? adjustedTotalPrice / usageHours : 0;
-
   return (
     <div>
       <div className="reser" style={{ width: "100%" }}>

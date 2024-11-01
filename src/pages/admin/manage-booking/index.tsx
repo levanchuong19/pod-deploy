@@ -8,7 +8,9 @@ import moment from "moment";
 
 function ManageBooking() {
   const [booking, setBooking] = useState<Booking[]>();
-  const [filteredBooking, setFilteredBooking] = useState<Booking[]>([]);
+  const [filteredBooking, setFilteredBooking] = useState<Booking[] | undefined>(
+    []
+  );
   const [startTime, setStartTime] = useState<string | null>(null);
   const columns = [
     {

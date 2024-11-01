@@ -27,7 +27,7 @@ function ConfirmBooking() {
   const [isBooking, setIsbooking] = useState<Booking | null>(null);
   const [isPayment, setIsPayment] = useState<Payment | null>(null);
   const [isRewardpoints, setIsRewardpoints] = useState<number>();
-  const [oldPrice, setOldPrice] = useState(null);
+  const [oldPrice, setOldPrice] = useState<number | undefined>();
   const [isChecked, setIsChecked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
   const { id } = useParams();
@@ -222,7 +222,6 @@ function ConfirmBooking() {
     try {
       const oldBooking = { ...isBooking };
       const price = oldBooking.totalPrice;
-      console.log("old price", price);
       setOldPrice(price);
       console.log("old booking", oldBooking);
       const start = isBooking?.startTime ? moment(isBooking.startTime) : null;
@@ -338,7 +337,7 @@ function ConfirmBooking() {
               <h2>Thanh toán: </h2>
               <Popconfirm
                 title={
-                  isRewardpoints >= 400
+                  isRewardpoints ?? 0 >= 400
                     ? `Bạn có muốn sử dụng ${isRewardpoints} điểm của mình không?`
                     : "Bạn cần tối đa 400 điểm để sử dụng"
                 }

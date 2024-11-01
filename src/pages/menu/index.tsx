@@ -3,7 +3,9 @@ import ServiceDetails from "../../components/serviceDetails";
 function Menu() {
   return (
     <div>
-      <h2>Dịch vụ đi kèm </h2>
+      <h1 style={{ marginLeft: "170px", marginTop: "20px" }}>
+        Dịch vụ đi kèm{" "}
+      </h1>
       <ServiceDetails />
     </div>
   );

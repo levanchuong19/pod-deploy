@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  BrowserRouter,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./components/layout";
 import Home from "./pages/home";
@@ -27,7 +31,6 @@ import ManageBooking from "./pages/admin/manage-booking";
 import ManageRewardPoint from "./pages/admin/manage-rewardBooking";
 import DashboardChard from "./components/dashboardChart";
 import Bookings from "./pages/booking";
-import UpdateBooking from "./pages/updateBooking";
 import ManageRating from "./pages/admin/manage-rating";
 
 function App() {
@@ -54,7 +57,6 @@ function App() {
         { path: "/profile/:id", element: <Profile /> },
         { path: "/bookingService/:id", element: <BookingService /> },
         { path: "/confirmBooking/:id", element: <ConfirmBooking /> },
-        { path: "/updatebooking/:id", element: <UpdateBooking /> },
       ],
     },
 
@@ -103,7 +105,9 @@ function App() {
   ]);
   return (
     <NotificationProvider>
-      <RouterProvider router={router} />
+      <BrowserRouter basename="/pod-deploy">
+        <RouterProvider router={router} />
+      </BrowserRouter>
     </NotificationProvider>
   );
 }
