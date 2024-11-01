@@ -1,8 +1,4 @@
-import {
-  BrowserRouter,
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import Layout from "./components/layout";
 import Home from "./pages/home";
@@ -105,9 +101,9 @@ function App() {
   ]);
   return (
     <NotificationProvider>
-      <BrowserRouter basename="/pod-deploy">
-        <RouterProvider router={router} />
-      </BrowserRouter>
+      {/* basename="/pod-deploy" */}
+
+      <RouterProvider router={router} />
     </NotificationProvider>
   );
 }
